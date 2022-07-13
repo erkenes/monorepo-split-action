@@ -54,10 +54,12 @@ class Slicer
         if (preg_match('/refs\/tags\/(.+)$/', $targetRef, $matches)) {
             $publishCommand[] = escapeshellarg('--no-heads');
             $publishCommand[] = escapeshellarg(sprintf('--tags=%s', $matches[1]));
-        } elseif (preg_match('/refs\/heads\/(.+)$/', $targetRef, $matches)) {
+        }
+        elseif (preg_match('/refs\/heads\/(.+)$/', $targetRef, $matches)) {
             $publishCommand[] = escapeshellarg('--no-tags');
             $publishCommand[] = escapeshellarg(sprintf('--heads=%s', $matches[1]));
-        } else {
+        }
+        else {
             echo sprintf('Skipping request (unexpected reference detected: %s)', $targetRef) . PHP_EOL;
             exit(0);
         }
