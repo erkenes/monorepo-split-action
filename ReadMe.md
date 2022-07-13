@@ -46,7 +46,7 @@ jobs:
         name: Set release version for tag
         run: echo "RELEASE_VERSION=refs/tags/${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
-      - uses: erkenes/monorepo-split-action@1.0.0
+      - uses: erkenes/monorepo-split-action@1.1.0
         with:
           repository_protocol: 'https://' # the protocol for cloning the mono-repository
           repository_host: 'github.com' # the host of the mono-repository
