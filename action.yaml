@@ -1,0 +1,58 @@
+name: 'Monorepo Slicer'
+
+description: 'Split mono packages into many single repositories'
+author: "Enes Erk <support@eneserk.de>"
+
+inputs:
+    repository_protocol:
+        description: 'Protokoll (https://)'
+        required: true
+        default: 'https://'
+    repository_host:
+        description: 'The Host of the mono repository'
+        required: true
+        default: 'github.com'
+    repository_organization:
+        description: 'Remote organization'
+        required: true
+    repository_name:
+        description: 'Remote repository'
+        required: true
+    allowed_refs_pattern:
+        description: 'Allowed Refs Pattern'
+        required: true
+    default_branch:
+        description: 'Default Branch of the repository'
+        required: true
+        default: 'main'
+    target_branch:
+        description: 'The target branch'
+        required: true
+        default: 'main'
+    package_directory:
+        description: 'Local package directory'
+        required: true
+    remote_repository:
+        description: 'remote repository'
+        required: true
+    remote_repository_access_token:
+        description: 'GitHub Token for remote repository'
+        required: true
+runs:
+    using: 'docker'
+    image: 'docker://ghcr.io/erkenes/monorepo-split-action/php:latest'
+    args:
+        - ${{ inputs.repository_protocol }}
+        - ${{ inputs.repository_host }}
+        - ${{ inputs.repository_organization }}
+        - ${{ inputs.repository_name }}
+        - ${{ inputs.allowed_refs_pattern }}
+        - ${{ inputs.default_branch }}
+        - ${{ inputs.target_branch }}
+        - ${{ inputs.package_directory }}
+        - ${{ inputs.remote_repository }}
+        - ${{ inputs.remote_repository_access_token }}
+
+branding:
+    icon: database
+    color: blue
