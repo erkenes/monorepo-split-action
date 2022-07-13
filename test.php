@@ -18,7 +18,7 @@ putenv('INPUT_REPOSITORY_NAME=monorepo-split');
 putenv('INPUT_DEFAULT_BRANCH=main');
 putenv('INPUT_PACKAGE_DIRECTORY=LocalPackages/Package.One');
 putenv('INPUT_REMOTE_REPOSITORY=https://github.com/erkenes/package-one.git');
-putenv('INPUT_ALLOWED_REFS_PATTERN=/^refs\\/(tags|heads)\\/([0-9]+\\.[0-9]+(\\.[0-9]+)?|main)$/');
+//putenv('INPUT_ALLOWED_REFS_PATTERN=/^refs\\/(tags|heads)\\/([0-9]+\\.[0-9]+(\\.[0-9]+)?|main)$/');
 
 require_once '/data/Classes/autoload.php';
 

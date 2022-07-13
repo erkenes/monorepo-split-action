@@ -34,11 +34,11 @@ class ConfigFactory
             repositoryOrganization: $env[$envPrefix . 'REPOSITORY_ORGANIZATION'] ?? throw new ConfigurationException('Repository Organization is missing'),
             repositoryName: $env[$envPrefix . 'REPOSITORY_NAME'] ?? throw new ConfigurationException('Repository Name is missing'),
             accessToken: $accessToken ?? throw new ConfigurationException('Access Token is missing'),
-            allowedRefsPattern: $env[$envPrefix . 'ALLOWED_REFS_PATTERN'] ?? throw new ConfigurationException('Allowed Refs Pattern is missing'),
             defaultBranch: $env[$envPrefix . 'DEFAULT_BRANCH'] ?? self::DEFAULT_BRANCH,
             targetBranch: $env[$envPrefix . 'TARGET_BRANCH'] ?? throw new ConfigurationException('Target Branch is missing'),
             packageDirectory: $env[$envPrefix . 'PACKAGE_DIRECTORY'] ?? throw new ConfigurationException('Package Directory is missing'),
             remoteRepository: $env[$envPrefix . 'REMOTE_REPOSITORY'] ?? throw new ConfigurationException('Remote Repository is missing'),
+            allowedRefsPattern: $env[$envPrefix . 'ALLOWED_REFS_PATTERN'] ?? null,
             remoteRepositoryAccessToken: $env[$envPrefix . 'REMOTE_REPOSITORY_ACCESS_TOKEN'] ?? null,
         );
     }

@@ -11,11 +11,11 @@ class Config
         private readonly string $repositoryOrganization,
         private readonly string $repositoryName,
         private readonly string $accessToken,
-        private readonly string $allowedRefsPattern,
         private readonly string $defaultBranch,
         private readonly string $targetBranch,
         private readonly string $packageDirectory,
         private readonly string $remoteRepository,
+        private readonly ?string $allowedRefsPattern = null,
         private readonly ?string $remoteRepositoryAccessToken = null
     )
     {
@@ -73,9 +73,9 @@ class Config
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAllowedRefsPattern(): string
+    public function getAllowedRefsPattern(): ?string
     {
         return $this->allowedRefsPattern;
     }

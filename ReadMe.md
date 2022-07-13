@@ -52,10 +52,10 @@ jobs:
           repository_host: 'github.com' # the host of the mono-repository
           repository_organization: 'erkenes' # the organization of the mono-repository
           repository_name: 'monorepo-split' # the name of the mono-repository
-          allowed_refs_pattern: /^refs\\/(tags|heads)\\/([0-9]+\\.[0-9]+(\\.[0-9]+)?|main)$/ # which heads (branches/tags) should be sliced
+          allowed_refs_pattern: /^refs\\/(tags|heads)\\/([0-9]+\\.[0-9]+(\\.[0-9]+)?|main)$/ # which heads (branches/tags) should be sliced (optional)
           default_branch: '${{ matrix.package.default_branch }}' # default branch from the matrix
           target_branch: '${{ env.RELEASE_VERSION }}' # the target branch of the mono-repository which should be sliced (depends on the pushed branch or tag)
           package_directory: '${{ matrix.package.local_path }}' # local path of the package from the matrix
           remote_repository: '${{ matrix.package.split_repository }}' # target repository of the package from the matrix
-          remote_repository_access_token: '${{ secrets.GITHUB_TOKEN }}' # an access token for the target repository
+          remote_repository_access_token: '${{ secrets.GITHUB_TOKEN }}' # an access token for the target repository (optional)
 ```

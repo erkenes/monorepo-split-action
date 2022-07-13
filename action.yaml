@@ -20,7 +20,7 @@ inputs:
         required: true
     allowed_refs_pattern:
         description: 'Allowed Refs Pattern'
-        required: true
+        required: false
     default_branch:
         description: 'Default Branch of the repository'
         required: true
@@ -37,7 +37,7 @@ inputs:
         required: true
     remote_repository_access_token:
         description: 'GitHub Token for remote repository'
-        required: true
+        required: false
 runs:
     using: 'docker'
     image: 'docker://ghcr.io/erkenes/monorepo-split-action/php:latest'
