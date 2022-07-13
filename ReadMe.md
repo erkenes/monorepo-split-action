@@ -13,6 +13,8 @@ on:
   push:
     branches:
       - main
+      - branch2 # You can add multiple branches that should be sliced if a commit is pushed into the branch
+    tags: [ '*.*.*' ]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
