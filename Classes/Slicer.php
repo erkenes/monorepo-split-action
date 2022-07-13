@@ -38,7 +38,11 @@ class Slicer
         // This is required for the git-subsplit.sh
         putenv('DEFAULT_BRANCH=' . $this->config->getDefaultBranch());
 
-        if ($this->config->getAllowedRefsPattern() !== null && preg_match($this->config->getAllowedRefsPattern(), $targetRef) !== 1) {
+        if (
+            $this->config->getAllowedRefsPattern() !== null
+            && $this->config->getAllowedRefsPattern() !== ''
+            && preg_match($this->config->getAllowedRefsPattern(), $targetRef) !== 1
+        ) {
             echo sprintf('Skipping request (blacklisted reference detected: %s)', $targetRef) . PHP_EOL;
             exit(0);
         }
