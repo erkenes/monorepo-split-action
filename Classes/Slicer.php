@@ -32,7 +32,7 @@ class Slicer
      */
     public function run(): void
     {
-        $targetRef = $this->config->getTargetBranch(true);
+        $targetRef = $this->config->getTargetBranch();
         $repositoryUrl = $this->config->getRepositoryUrl(true);
 
         // This is required for the git-subsplit.sh

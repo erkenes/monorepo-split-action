@@ -96,12 +96,11 @@ class Config
     }
 
     /**
-     * @param bool $fullPath
      * @return string
      */
-    public function getTargetBranch(bool $fullPath = false): string
+    public function getTargetBranch(): string
     {
-        return $fullPath ? 'refs/heads/' . $this->targetBranch : $this->targetBranch;
+        return $this->targetBranch;
     }
 
     /**
