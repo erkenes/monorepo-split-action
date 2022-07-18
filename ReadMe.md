@@ -59,3 +59,29 @@ jobs:
           remote_repository: '${{ matrix.package.split_repository }}' # target repository of the package from the matrix
           remote_repository_access_token: '${{ secrets.GITHUB_TOKEN }}' # an access token for the target repository (optional)
 ```
+
+### Troubleshooting
+
+#### Could not read Password
+
+If you are getting an error like the following:
+
+```text
+fatal: could not read Password for 'https://***@github.com': No such device or address
+```
+
+To fix the issue you may have to adjust the input properties `access_token` and/or `remote_repository_access_token` by adding the prefix `x-access-token`:
+
+```yaml
+jobs:
+  packages_split:
+    steps:
+      - uses: erkenes/monorepo-split-action@1.2.0
+        with:
+          access_token: 'x-access-token:${{ secrets.GITHUB_TOKEN }}'
+          remote_repository_access_token: 'x-access-token:${{ secrets.GITHUB_TOKEN }}'
+```
+
+The issue can occur if you are using `tibdex/github-app-token` to generate dynamic PATs.
+
+[See: HTTP-based Git access by an installation](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#http-based-git-access-by-an-installation)

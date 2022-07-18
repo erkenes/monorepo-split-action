@@ -6,7 +6,7 @@ author: "Enes Erk <support@eneserk.de>"
 inputs:
     access_token:
         description: 'The token to access the repository'
-        required: false
+        required: true
     repository_protocol:
         description: 'Protokoll (https://)'
         required: true
