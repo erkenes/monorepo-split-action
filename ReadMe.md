@@ -45,7 +45,7 @@ jobs:
         name: Set release version for tag
         run: echo "RELEASE_VERSION=refs/tags/${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
-      - uses: erkenes/monorepo-split-action@1.2.0
+      - uses: erkenes/monorepo-split-action@1.3.0
         with:
           access_token: '${{ secrets.GITHUB_TOKEN }}' # The access token for the repository
           repository_protocol: 'https://' # the protocol for cloning the mono-repository
@@ -75,7 +75,7 @@ To fix the issue you may have to adjust the input properties `access_token` and/
 jobs:
   packages_split:
     steps:
-      - uses: erkenes/monorepo-split-action@1.2.0
+      - uses: erkenes/monorepo-split-action@1.3.0
         with:
           access_token: 'x-access-token:${{ secrets.GITHUB_TOKEN }}'
           remote_repository_access_token: 'x-access-token:${{ secrets.GITHUB_TOKEN }}'
