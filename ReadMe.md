@@ -16,9 +16,6 @@ on:
       - branch2 # You can add multiple branches that should be sliced if a commit is pushed into the branch
     tags: [ '*.*.*' ]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   packages_split:
     runs-on: ubuntu-latest
@@ -50,6 +47,7 @@ jobs:
 
       - uses: erkenes/monorepo-split-action@1.1.0
         with:
+          access_token: '${{ secrets.GITHUB_TOKEN }}' # The access token for the repository
           repository_protocol: 'https://' # the protocol for cloning the mono-repository
           repository_host: 'github.com' # the host of the mono-repository
           repository_organization: 'erkenes' # the organization of the mono-repository

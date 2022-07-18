@@ -5,7 +5,7 @@ use ErkEnes\MonorepoSplit\Slicer;
 
 // GitHub-Tokens for access
 //putenv('INPUT_REMOTE_REPOSITORY_ACCESS_TOKEN=');
-putenv('GITHUB_TOKEN=');
+putenv('INPUT_ACCESS_TOKEN=');
 
 // The branch/head which should be sliced
 //putenv('INPUT_TARGET_BRANCH=refs/tags/1.6.0');

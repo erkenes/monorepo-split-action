@@ -7,13 +7,15 @@ use ErkEnes\MonorepoSplit\Exception\ConfigurationException;
 
 final class PublicAccessTokenResolver
 {
-    private const GITHUB_TOKEN = 'GITHUB_TOKEN';
+    private const ACCESS_TOKEN = 'ACCESS_TOKEN';
+    private const INPUT_ACCESS_TOKEN = 'INPUT_ACCESS_TOKEN';
 
     /**
      * @var string[]
      */
     private const POSSIBLE_TOKEN_ENVS = [
-        self::GITHUB_TOKEN
+        self::ACCESS_TOKEN,
+        self::INPUT_ACCESS_TOKEN
     ];
 
     /**
@@ -21,8 +23,11 @@ final class PublicAccessTokenResolver
      */
     public function resolve(array $env): string
     {
-        if (isset($env[self::GITHUB_TOKEN])) {
-            return $env[self::GITHUB_TOKEN];
+        if (isset($env[self::ACCESS_TOKEN])) {
+            return $env[self::ACCESS_TOKEN];
+        }
+        if (isset($env[self::INPUT_ACCESS_TOKEN])) {
+            return $env[self::INPUT_ACCESS_TOKEN];
         }
 
         $message = sprintf(
