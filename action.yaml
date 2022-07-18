@@ -21,9 +21,6 @@ inputs:
     repository_name:
         description: 'Remote repository'
         required: true
-    allowed_refs_pattern:
-        description: 'Allowed Refs Pattern'
-        required: false
     default_branch:
         description: 'Default Branch of the repository'
         required: true
@@ -50,7 +47,6 @@ runs:
         - ${{ inputs.repository_host }}
         - ${{ inputs.repository_organization }}
         - ${{ inputs.repository_name }}
-        - ${{ inputs.allowed_refs_pattern }}
         - ${{ inputs.default_branch }}
         - ${{ inputs.target_branch }}
         - ${{ inputs.package_directory }}

@@ -15,7 +15,6 @@ class Config
         private readonly string $targetBranch,
         private readonly string $packageDirectory,
         private readonly string $remoteRepository,
-        private readonly ?string $allowedRefsPattern = null,
         private readonly ?string $remoteRepositoryAccessToken = null
     )
     {
@@ -70,14 +69,6 @@ class Config
         $repositoryUrl = $this->repositoryHost . '/' . $this->repositoryOrganization . '/' . $this->repositoryName . '.git';
 
         return $withAccessToken ? $this->repositoryProtocol . $this->accessToken . '@' . $repositoryUrl : $this->repositoryProtocol . $repositoryUrl;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getAllowedRefsPattern(): ?string
-    {
-        return $this->allowedRefsPattern;
     }
 
     public function getSplits(): array
