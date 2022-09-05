@@ -15,6 +15,7 @@ on:
       - main
       - branch2 # You can add multiple branches that should be sliced if a commit is pushed into the branch
     tags: [ '*.*.*' ]
+  #workflow_dispatch: # allows to manually slice a branch
 
 jobs:
   packages_split:
