@@ -35,15 +35,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # no tag
-      - if: "!startsWith(github.ref, 'refs/tags/')"
-        name: Set release version for branch
-        run: echo "RELEASE_VERSION=refs/heads/${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
-      # with tag
-      - if: "startsWith(github.ref, 'refs/tags/')"
-        name: Set release version for tag
-        run: echo "RELEASE_VERSION=refs/tags/${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      # set current branch or tag
+      - name: Set release version for branch or tag
+        run: echo "RELEASE_VERSION=${{ github.ref }}" >> $GITHUB_ENV
 
       - uses: erkenes/monorepo-split-action@1.3.0
         with:
