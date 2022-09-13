@@ -20,7 +20,7 @@ putenv('INPUT_DEFAULT_BRANCH=main');
 putenv('INPUT_PACKAGE_DIRECTORY=LocalPackages/Package.One');
 putenv('INPUT_REMOTE_REPOSITORY=https://github.com/erkenes/package-one.git');
 
-require_once '/data/Classes/autoload.php';
+require_once './Classes/autoload.php';
 
 $slicer = new Slicer();
 $slicer->run();

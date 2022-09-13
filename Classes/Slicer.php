@@ -7,8 +7,8 @@ use ErkEnes\MonorepoSplit\Exception\ConfigurationException;
 
 class Slicer
 {
-    private const GIT_SUB_SPLIT_BINARY = '/data/bin/git-subsplit.sh';
-    private const WORKING_DIRECTORY = '/data/git-subsplit-temporary';
+    private const GIT_SUB_SPLIT_BINARY = '../bin/git-subsplit.sh';
+    private const WORKING_DIRECTORY = './git-subsplit-temporary';
 
     protected Config $config;
 
