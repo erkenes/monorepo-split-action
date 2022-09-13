@@ -37,6 +37,7 @@ class Slicer
 
         // This is required for the git-subsplit.sh
         putenv('DEFAULT_BRANCH=' . $this->config->getDefaultBranch());
+        putenv('REMOTE_BRANCH_RENAMED=' . ($this->config->getRemoteBranchRenamed() ?? $this->config->getTargetBranch()));
 
         $publishCommand = [
             sprintf(

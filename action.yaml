@@ -38,6 +38,9 @@ inputs:
     remote_repository_access_token:
         description: 'GitHub Token for remote repository'
         required: false
+    remote_branch_renamed:
+        description: 'The name of the branch that should be used for pushing'
+        required: false
 runs:
     using: 'docker'
     image: 'docker://ghcr.io/erkenes/monorepo-split-action/php:1.3.0'
@@ -52,6 +55,7 @@ runs:
         - ${{ inputs.package_directory }}
         - ${{ inputs.remote_repository }}
         - ${{ inputs.remote_repository_access_token }}
+        - ${{ inputs.remote_branch_renamed }}
 
 branding:
     icon: database

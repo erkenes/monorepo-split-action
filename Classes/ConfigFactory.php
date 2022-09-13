@@ -39,6 +39,7 @@ class ConfigFactory
             packageDirectory: $env[$envPrefix . 'PACKAGE_DIRECTORY'] ?? throw new ConfigurationException('Package Directory is missing'),
             remoteRepository: $env[$envPrefix . 'REMOTE_REPOSITORY'] ?? throw new ConfigurationException('Remote Repository is missing'),
             remoteRepositoryAccessToken: $env[$envPrefix . 'REMOTE_REPOSITORY_ACCESS_TOKEN'] ?? null,
+            remoteBranchRenamed: $env[$envPrefix . 'REMOTE_BRANCH_RENAMED'] ?? null,
         );
     }
 }

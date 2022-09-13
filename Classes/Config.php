@@ -15,7 +15,8 @@ class Config
         private readonly string $targetBranch,
         private readonly string $packageDirectory,
         private readonly string $remoteRepository,
-        private readonly ?string $remoteRepositoryAccessToken = null
+        private readonly ?string $remoteRepositoryAccessToken = null,
+        private readonly ?string $remoteBranchRenamed = null
     )
     {
     }
@@ -71,6 +72,9 @@ class Config
         return $withAccessToken ? $this->repositoryProtocol . $this->accessToken . '@' . $repositoryUrl : $this->repositoryProtocol . $repositoryUrl;
     }
 
+    /**
+     * @return string[]
+     */
     public function getSplits(): array
     {
         return [
@@ -120,6 +124,20 @@ class Config
         return $this->remoteRepositoryAccessToken;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getRemoteBranchRenamed(): ?string
+    {
+        return $this->remoteBranchRenamed;
+    }
+
+    /**
+     * @param $string
+     * @param $keyword
+     * @param $body
+     * @return string
+     */
     private function insertStringBetween ($string, $keyword, $body): string
     {
         return substr_replace($string, $body, strpos($string, $keyword) + strlen($keyword), 0);
