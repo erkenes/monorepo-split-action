@@ -28,6 +28,8 @@ class ConfigFactory
     {
         $envPrefix = $ciPlatform === self::GITHUB ? 'INPUT_' : '';
 
+        var_dump('BRANCH_RENAMED: ' . $env[$envPrefix . 'REMOTE_BRANCH_RENAMED'] ?? null);
+
         return new Config(
             repositoryProtocol: $env[$envPrefix . 'REPOSITORY_PROTOCOL'] ?? throw new ConfigurationException('Repository Protocol is missing'),
             repositoryHost: $env[$envPrefix . 'REPOSITORY_HOST'] ?? throw new ConfigurationException('Repository Host is missing'),
